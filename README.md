@@ -1,70 +1,97 @@
-# Data Science Phase_3_project
+# Phase_3 Project - Data Science
 
-**Project Overview**
+**Name:** Gladys Kemunto  
+**GitHub Repo:** [https://github.com/Mosota-Kemunto-Gladys-2020/Gladys_phase_3_project.git](https://github.com/Mosota-Kemunto-Gladys-2020/Gladys_phase_3_project.git)
 
-SyriaTel, a leading telecommunications company in Syria, is facing significant financial losses due to customer churn. To address this issue, SyriaTel is shifting from descriptive and inferential analysis to a predictive approach, aiming to identify at-risk customers using a machine learning model. The goal is to develop a predictive model using the SyriaTel Customer Churn dataset to accurately identify customers likely to churn and implement targeted retention strategies to reduce churn rates and improve profitability.
+## Project Overview
 
-**Key Questions Addressed**
+### Objective
+SyriaTel, a leading telecommunications company in Syria, is facing substantial financial losses due to customer churn, which refers to the rate at which customers discontinue their relationship with a company within a specific period. Previously, SyriaTel focused on descriptive and inferential analyses to understand customer behavior and relationships between variables. To address the current churn issue, SyriaTel is shifting towards a predictive approach. The goal of this project is to develop a predictive model using the SyriaTel Customer Churn dataset that accurately identifies customers at risk of churning. By understanding which variables most influence churn, SyriaTel aims to implement targeted retention strategies, reduce churn rates, and improve customer loyalty and profitability.
 
-What are the best Model for Predicting Churn:
+### Business Understanding
+Customer churn is a critical challenge in the telecommunications industry that directly impacts profitability. SyriaTel's loss of customers due to churn prompted the need for advanced analytical techniques. Previously, the company focused on understanding the distribution of key variables and customer behavior, but this is no longer sufficient. To effectively combat churn, SyriaTel is adopting a predictive approach by building a model to forecast which customers are likely to churn. This predictive model will analyze features like customer demographics, usage patterns, and service interactions to determine their impact on churn.
 
-The analysis compared Decision Tree, K-Nearest Neighbors (KNN), and Random Forest models. The Random Forest model was identified as the best overall performer, with the highest accuracy, precision, recall, and ROC-AUC scores.
-What is the accuracy of Churn Predictions:
+### Key Questions to Be Addressed
+* **What is the best model for predicting customer churn?**  
+   After comparing various models, including Decision Tree, K-Nearest Neighbors (KNN), and Random Forest, the analysis will recommend the best overall performer based on metrics like accuracy, precision, recall, and ROC-AUC score.
 
-The Random Forest model demonstrated high accuracy (93%), correctly identifying both churn and non-churn customers with minimal errors, making it a reliable tool for predicting customer churn.
+* **How accurately can the model predict customer churn?**  
+   The analysis will evaluate the performance of various models using metrics such as accuracy, precision, recall, and the ROC-AUC score to determine how well they predict customer churn.
 
-What are Influential Features for Predicting Churn:
+* **Which features are most influential in predicting customer churn?**  
+   Identifying the most impactful features, such as customer service interactions, usage patterns, and plan types, will help SyriaTel prioritize its retention efforts and design more effective interventions.
 
-Using SHAP analysis, key features influencing churn predictions were identified, including the presence of an international plan, frequency of customer service calls, and total day minutes. These insights help SyriaTel target specific areas to improve retention.
+With these insights, SyriaTel can proactively identify at-risk customers and intervene with targeted strategies, reducing churn rates and improving customer satisfaction and loyalty.
 
-**Methodology**
+### Methodology for Machine Learning
+To build a predictive model for identifying customers at risk of churning, the following steps were followed:
 
-The project followed a structured approach:
+1. **Data Understanding:**  
+   Explore the dataset to understand its structure, feature types, and quality, checking for missing values and inconsistencies.
 
-Data Understanding and Cleaning:
+2. **Data Cleaning:**  
+   Prepare the data by handling missing values, correcting errors, and removing duplicates and irrelevant features.
 
-Explored and prepared the dataset by handling missing values, errors, and irrelevant features.
+3. **Exploratory Data Analysis (EDA):**  
+   Visualize data distributions and relationships between features and the target variable to gain insights and identify patterns.
 
-Exploratory Data Analysis (EDA):
+4. **Data Preprocessing:**  
+   Transform the data for modeling by encoding categorical variables, scaling numerical features, and splitting into training and test sets.
 
-Visualized data distributions and relationships between features and the target variable.
+5. **Modeling:**  
+   Train various models (e.g., Logistic Regression, Decision Trees, Random Forest) and use cross-validation to evaluate performance.
 
-Data Preprocessing:
+6. **Hyperparameter Selection:**  
+   Optimize model performance by tuning hyperparameters using techniques like Grid Search.
 
-Encoded categorical variables, scaled numerical features, and ensured consistent feature alignment between training and test datasets.
+7. **Model Evaluation:**  
+   Assess models using metrics like accuracy, F1-score, and ROC-AUC; analyze confusion matrices and use tools like SHAP for interpretation.
 
-Modeling:
+8. **Recommendations and Conclusion:**  
+   Summarize findings, recommend strategies to reduce churn, and provide insights for future improvements.
 
-Trained and evaluated various models, including Logistic Regression, Decision Tree, Random Forest, and KNN, using cross-validation and hyperparameter tuning to optimize performance.
+### Data Understanding
+The dataset used is the **SyriaTel Customer Churn** dataset, containing 3333 rows and 21 columns with a mix of categorical, numerical, and boolean data types. It includes features such as state, account length, area code, phone number, international plan, voice mail plan, and various usage metrics like total day minutes and customer service calls. The target variable is **churn**, indicating whether a customer has churned (True) or not (False).
 
-**Feature Importance Analysis:**
+### Data Cleaning
+The data cleaning process involved handling missing values, duplicates, and irrelevant features (e.g., phone number). Categorical variables were encoded using One-Hot Encoding, and numerical features were scaled. Features with high correlation, such as total charges and minutes, were identified to reduce redundancy.
 
-Used SHAP analysis to interpret the Random Forest model, highlighting the most influential features affecting churn predictions.
+### Exploratory Data Analysis (EDA)
+Key observations included:
+- Potential outliers in features like voicemail messages and customer service calls.
+- Distribution analysis showed class imbalance in churn, necessitating handling techniques like SMOTE.
+- Correlation analysis identified redundancy in highly correlated features, which were removed to improve model efficiency.
 
+### Preprocessing
+The data was split into training and test sets, categorical variables were encoded, and features were scaled. Class imbalance was addressed using SMOTE, resulting in a balanced dataset for training.
 
-**Model Evaluation**
+### Modeling and Evaluation
+Four models were evaluated:
+1. **K-Nearest Neighbors (KNN):**  
+   Showed moderate performance but struggled with test set generalization.
+   
+2. **Logistic Regression:**  
+   Demonstrated consistency between training and test data but had modest precision.
+   
+3. **Decision Tree:**  
+   Performed well with balanced accuracy, precision, and recall.
+   
+4. **Random Forest:**  
+   Emerged as the top performer with high accuracy and robust generalization.
 
-Random Forest achieved the highest performance among all models with an accuracy of 93%, an F1-Score of 0.75, and a ROC-AUC Score of 0.85.
-Best suited for predicting customer churn at SyriaTel due to its strong performance across all evaluation metrics.
+### Fine-Tuning and SHAP Analysis
+Fine-tuning focused on the Random Forest and Decision Tree models. SHAP analysis identified the most influential features affecting churn predictions, such as international plan usage and customer service calls.
 
-**Recommendations**
+### Key Insights and Recommendations
+1. **Deploy the Random Forest Model:**  
+   With the best overall performance, the Random Forest model is recommended for deployment to accurately predict churn and enable targeted retention strategies.
 
-Deploy the Random Forest Model:
+2. **Enhance Customer Service:**  
+   Proactively address issues highlighted by frequent customer service interactions to reduce churn.
 
-Integrate the Random Forest model into SyriaTel’s CRM system for real-time churn prediction and continuously update the model with new data.
+3. **Tailor Retention Strategies:**  
+   Develop plans targeting high-usage customers and offer incentives for international plan users.
 
-Enhance Customer Service:
-
-Implement proactive strategies to reduce churn among customers frequently contacting support.
-Tailor Retention Strategies:
-
-Develop specialized plans for high-usage customers and offer incentives for segments identified as high-risk by the model.
-
-Feature Selection Using SHAP:
-
-Utilize SHAP analysis to streamline the model by focusing on the most impactful features, enhancing model generalization and performance.
-
-**Conclusion**
-
-By leveraging the Random Forest model and implementing targeted retention strategies, SyriaTel can effectively reduce customer churn, improve customer satisfaction, and achieve better financial outcomes. This proactive approach enables SyriaTel to maintain a competitive edge in the telecommunications industry.
+### Conclusion
+Deploying the Random Forest model, coupled with targeted strategies based on influential features, will allow SyriaTel to reduce churn, improve customer satisfaction, and enhance profitability. This proactive approach moves SyriaTel beyond understanding churn to effectively acting on predictive insights.
 
